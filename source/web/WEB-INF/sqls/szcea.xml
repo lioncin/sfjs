@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ========================================================== -->
+<!--                                                            -->
+<!-- Copyright 2016, SanYet.com. All rights reserved.           -->
+<!--                                                            -->
+<!-- @author lupeng                                             -->
+<!--                                                            -->
+<!-- ========================================================== -->
+
+<sqls catalog="yuangonghui">
+
+  <sql key="searchYghBooks" remarks="">
+    <![CDATA[
+      SELECT 
+		*,
+		(SELECT COUNT(*) FROM CM_COMMENT T1 WHERE T1.REF_ID=T2.ID)AS COUNTS
+	  FROM CT_CONTENT T2
+	  GROUP BY T2.ID
+	  HAVING COUNTS >0
+	  <#if schName??>AND T2.NAME LIKE ?</#if>
+    ]]>
+  </sql>
+
+  <sql key="searchReviews" remarks="">
+    <![CDATA[
+      SELECT 
+		T1.*,
+		T2.NAME,
+		T3.FULLNAME,
+		T3.MOBILE,
+		(SELECT COUNT(*) FROM CM_RATING T4 WHERE T4.REF_ID=T1.ID)AS COUNTS
+	  FROM CM_COMMENT T1
+	  LEFT JOIN CT_CONTENT T2 ON T1.REF_ID = T2.ID 
+	  LEFT JOIN CM_PROFILE T3 ON T1.AUTHOR_ID = T3.ID
+	  WHERE 1 = 1
+      <#if schName??>AND T2.NAME LIKE ?</#if>
+      <#if schFullname??>AND T3.FULLNAME LIKE ?</#if>
+      <#if schId??>AND T1.ID= ?</#if>
+      <#if schStatus??>AND T1.STATUS= ?</#if>
+    ]]>
+  </sql>
+
+  <sql key="getOrderItems" remarks="">
+    <![CDATA[
+      SELECT
+        T1.*,
+        T2.NAME AS PRODUCT_NAME,
+        T2.PRICE
+      FROM EC_ORDER_ITEM T1
+      JOIN PD_PRODUCT T2 ON T1.PRODUCT_ID = T2.ID
+      WHERE T1.ORDER_ID = ?
+    ]]>
+  </sql>
+
+  <sql key="searchPromotions" remarks="">
+    <![CDATA[
+      SELECT T1.* FROM EC_PROMOTION T1<#if schName??> WHERE T1.NAME LIKE ?</#if>
+    ]]>
+  </sql>
+
+  <sql key="searchPromoProducts" remarks="">
+    <![CDATA[
+      SELECT T1.*, T2.* FROM EC_PROMO_PRODUCT T1 JOIN PD_PRODUCT T2 ON T1.PRODUCT_ID = T2.ID WHERE T1.PROMOTION_ID = ?<#if schName??> AND T2.NAME LIKE ?</#if>
+    ]]>
+  </sql>
+
+  <sql key="searchStoreCategories" remarks="">
+    <![CDATA[
+      SELECT
+        T2.*,
+        T3.NAME AS PARENT_NAME
+      FROM EC_STORE_CATEGORY T1
+      JOIN PD_CATEGORY T2 ON T1.CATEGORY_ID = T2.ID
+      LEFT JOIN PD_CATEGORY T3 ON T2.PARENT_ID = T3.ID
+      WHERE T1.STORE_ID = ?
+      <#if schCategoryId??>AND T2.ID = ?</#if>
+      <#if schCategoryName??>AND T2.NAME LIKE CONCAT('%', ?, '%')</#if>
+      <#if schParentName??>AND T3.NAME LIKE CONCAT('%', ?, '%')</#if>
+    ]]>
+  </sql>
+  <sql key="searchStoreProducts" remarks="">
+    <![CDATA[
+      SELECT
+        T2.*,
+        T3.NAME AS CATEGORY_NAME
+      FROM EC_STORE_CATEGORY T1
+      JOIN PD_PRODUCT T2 ON T1.CATEGORY_ID = T2.CATEGORY_ID
+      JOIN PD_CATEGORY T3 ON T2.CATEGORY_ID = T3.ID
+      WHERE T1.STORE_ID = ?
+      <#if schCategoryId??>AND T1.CATEGORY_ID = ?</#if>
+      <#if schProductName??>AND T2.NAME LIKE CONCAT('%', ?, '%')</#if>
+      <#if schCategoryName??>AND T3.NAME LIKE CONCAT('%', ?, '%')</#if>
+      <#if schProductStatus??>AND T2.STATUS = ?</#if>
+    ]]>
+  </sql>
+
+  <sql key="searchOrders" remarks="">
+    <![CDATA[
+      SELECT
+        T1.*
+      FROM EC_ORDER T1
+      <#if schProductName??>
+      JOIN EC_ORDER_ITEM T2 ON T1.ID = T2.ORDER_ID
+      JOIN PD_PRODUCT T3 ON T2.PRODUCT_ID = T3.ID
+      </#if>
+      WHERE 1 = 1
+      <#if schStoreId??>AND T1.STORE_ID = ?</#if>
+      <#if schNo??>AND T1.NO LIKE CONCAT('%', ?, '%')</#if>
+      <#if schOrderedBy??>AND T1.ORDERED_BY = ?</#if>
+      <#if schProductName??>AND T3.NAME LIKE CONCAT('%', ?, '%')</#if>
+    ]]>
+  </sql>
+
+  <!-- hotel -->
+  <sql key="searchBookings" remarks="">
+    <![CDATA[
+      SELECT
+        T1.*,
+        T2.NAME AS ROOM_NAME
+      FROM EC_BOOKING T1
+      JOIN PD_PRODUCT T2 ON T1.ROOM_ID = T2.ID
+      WHERE 1 = 1
+      <#if schStoreId??>AND T1.STORE_ID = ?</#if>
+      <#if schRoomName??>AND T2.NAME LIKE CONCAT('%', ?, '%')</#if>
+      <#if schRoomId??>AND T1.ROOM_ID = ?</#if>
+      <#if schBookedBy??>AND T1.BOOKED_BY = ?</#if>
+      <#if schId??>AND T1.ID = ?</#if>
+    ]]>
+  </sql>
+
+  <sql key="getBooking" remarks="">
+    <![CDATA[
+      SELECT
+        T1.*,
+        T2.NAME AS ROOM_NAME
+      FROM EC_BOOKING T1
+      JOIN PD_PRODUCT T2 ON T1.ROOM_ID = T2.ID
+      WHERE T1.ID = ?
+    ]]>
+  </sql>
+
+</sqls>

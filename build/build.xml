@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="sfjs" basedir="." default="usage">
+
+  <!-- ================ settings ================ -->
+  <property file="build.properties"/>
+  <property environment="env"/>
+
+  <tstamp>
+    <format property="build.time" pattern="yyyy-MM-dd HH:mm"/>
+  </tstamp>
+
+  <!-- ================ classpath ================ -->
+  <path id="master-classpath">
+    <fileset dir="${lib.compile}">
+      <include name="*.jar"/>
+    </fileset>
+    <fileset dir="${lib.runtime}">
+      <include name="*.jar"/>
+    </fileset>
+    <fileset dir="${fireball.lib.compile}">
+      <include name="*.jar"/>
+    </fileset>
+    <fileset dir="${fireball.lib.runtime}">
+      <include name="*.jar"/>
+    </fileset>
+  </path>
+
+  <!-- ================ targets ================ -->
+  <target name="init">
+    <mkdir dir="${target.root}"/>
+    <mkdir dir="${target.root}/${app.name}"/>
+  </target>
+
+  <target name="clean">
+    <delete dir="${target.root}"/>
+  </target>
+
+  <target name="compile" depends="clean, init" description="Compile the Java codes into build folder.">
+    <mkdir dir="${target.classes}"/>
+
+    <javac destdir="${target.classes}" srcdir="${fireball.src.java}" target="1.8" source="1.8" encoding="UTF-8" debug="${compile.debug}" includeAntRuntime="no">
+      <classpath refid="master-classpath"/>
+    </javac>
+    <javac destdir="${target.classes}" srcdir="${src.java}" target="1.8" source="1.8" encoding="UTF-8" debug="${compile.debug}" includeAntRuntime="no">
+      <classpath>
+        <path refid="master-classpath"/>
+        <pathelement path="${target.classes}/"/>
+      </classpath>
+    </javac>
+  </target>
+
+  <!-- ================ local build ================ -->
+  <target name="copy-files" description="Copy the files to local server.">
+    <copy todir="${app.root}" preservelastmodified="true">
+      <fileset dir="${fireball.src.web}">
+        <include name="**/*"/>
+        <exclude name="**/*.bat"/>
+      </fileset>
+    </copy>
+
+    <copy todir="${app.root}" overwrite="true">
+      <fileset dir="${src.web}">
+        <include name="**/*"/>
+        <exclude name="**/*.bat"/>
+      </fileset>
+    </copy>
+
+    <concat destfile="${app.root}/WEB-INF/msgs/plain_zh_CN.txt" append="true" encoding="UTF-8">
+      <sort>
+        <fileset dir="${app.root}/WEB-INF/msgs">
+          <include name="*_zh_CN.txt"/>
+          <exclude name="plain_zh_CN.txt"/>
+        </fileset>
+      </sort>
+    </concat>
+
+    <native2ascii encoding="UTF-8" src="${app.root}/WEB-INF/msgs" dest="${app.root}/WEB-INF/msgs" includes="plain*.txt" ext=".properties"/>
+
+    <delete>
+      <fileset dir="${app.root}/WEB-INF/msgs" includes="**/*.txt"/>
+    </delete>
+
+    <copy todir="${app.root}/WEB-INF/classes" preservelastmodified="true">
+      <fileset dir="${target.classes}">
+        <include name="**/*"/>
+      </fileset>
+    </copy>
+  </target>
+
+  <target name="lite" description="Deploy the project files to local server.">
+    <mkdir dir="${target.classes}"/>
+    <antcall target="copy-files">
+      <param name="app.root" value="${target.root}/${app.name}"/>
+    </antcall>
+    <echo>Built At: ${build.time}</echo>
+  </target>
+
+  <target name="build" depends="compile" description="Deploy the project files to local server.">
+    <antcall target="copy-files">
+      <param name="app.root" value="${target.root}/${app.name}"/>
+    </antcall>
+    <echo>Built At: ${build.time}</echo>
+  </target>
+
+  <target name="usage">
+    <echo message=""/>
+    <echo message="        SZCEA Project Build File v20161101"/>
+    <echo message="--------------------------------------------------------"/>
+    <echo message=""/>
+    <echo message="Available targets:"/>
+    <echo message="build        --> Build whole project for deployment."/>
+    <echo message="lite         --> Update the changes for web resources."/>
+    <echo message="compile      --> Compile all the Java codes."/>
+    <echo message="clean        --> Remove the target folder."/>
+    <echo message=""/>
+  </target>
+
+</project>

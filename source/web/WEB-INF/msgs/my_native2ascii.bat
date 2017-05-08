@@ -1,0 +1,1 @@
+native2ascii -encoding UTF-8 szcea_zh_CN.txt plain_zh_CN.properties

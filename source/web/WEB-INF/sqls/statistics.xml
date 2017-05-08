@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ========================================================== -->
+<!--                                                            -->
+<!-- Copyright 2016, SanYet.com. All rights reserved.           -->
+<!--                                                            -->
+<!-- @author hanjian                                             -->
+<!--                                                            -->
+<!-- ========================================================== -->
+
+<sqls catalog="statistics">
+  <sql key="searchStatistics" remarks="">
+    <![CDATA[
+      SELECT T1.*, T2.COMPANY_NAME
+      FROM CE_STATISTICS T1
+      LEFT JOIN CR_CUSTOMER T2 ON T1.SUBMITTED_BY = T2.ID
+      WHERE 1 = 1
+      <#if schStatYear??> AND T1.STAT_YEAR LIKE CONCAT('%', ?, '%')</#if>
+      <#if submittedBy??> AND T2.COMPANY_NAME LIKE CONCAT('%', ?, '%')</#if>
+      <#if schFiledBy??> AND T1.FILED_BY LIKE CONCAT('%', ?, '%')</#if>
+      <#if schType??> AND T1.TYPE = ?</#if>
+      <#if schSubmittedBy??> AND T1.SUBMITTED_BY = ?</#if>
+    ]]>
+  </sql>
+  <sql key="getConferenceDataSheet" remarks="">
+    <![CDATA[
+      SELECT
+        ifnull(LEVEL,'TOTAL') AS LEVEL,
+        GROUP_CONCAT(DISTINCT STAT_ID) AS STAT_ID,
+        SUM(if(TYPE='G', TIME, 0)) AS G_TIME,
+        SUM(if(TYPE='G', VISITOR_COUNT, 0)) AS G_VISITOR_COUNT,
+        SUM(if(TYPE='O', TIME, 0)) AS O_TIME,
+        SUM(if(TYPE='O', VISITOR_COUNT, 0)) AS O_VISITOR_COUNT,
+        SUM(if(TYPE='B', TIME, 0)) AS B_TIME,
+        SUM(if(TYPE='B', VISITOR_COUNT, 0)) AS B_VISITOR_COUNT,
+        SUM(if(TYPE='Z', TIME, 0)) AS Z_TIME,
+        SUM(if(TYPE='Z', VISITOR_COUNT, 0)) AS Z_VISITOR_COUNT,
+        SUM(TIME) AS SUBTOTAL_TIME,
+        SUM(VISITOR_COUNT) AS SUBTOTAL_VISITOR_COUNT,
+        GROUP_CONCAT(DISTINCT REMARKS) AS REMARKS
+      FROM CE_STAT_CONFERENCE
+      WHERE STAT_ID in (
+        SELECT ID
+        FROM CE_STATISTICS
+        WHERE TYPE = 'D'
+        <#if schStatYear??> AND STAT_YEAR LIKE CONCAT('%', ?, '%')</#if>
+        <#if schSubmittedBy??> AND SUBMITTED_BY = ?</#if>
+       )
+      GROUP BY LEVEL with rollup
+    ]]>
+  </sql>
+</sqls>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ========================================================== -->
+<!--                                                            -->
+<!-- Copyright 2016, SanYet.com. All rights reserved.           -->
+<!--                                                            -->
+<!-- @author lupeng                                             -->
+<!--                                                            -->
+<!-- ========================================================== -->
+
+<sqls catalog="base">
+  <sql key="searchUsers" remarks="">
+    <![CDATA[
+      SELECT
+        T1.*,
+        T2.ID_NO,
+        T2.FULLNAME,
+        T2.GENDER,
+        T2.BIRTHDAY,
+        T2.REMARKS
+      FROM CM_USER T1
+      LEFT JOIN CM_PROFILE T2 ON T1.PROFILE_ID = T2.ID
+      <#if schUsername?? || schFullname??> WHERE</#if><#if schUsername??> T1.USERNAME LIKE ?</#if><#if schFullname??><#if schUsername??> AND</#if> T2.FULLNAME LIKE ?</#if>
+    ]]>
+  </sql>
+  
+ <!-- 初始项目用了role_id，最后sql添加用户时全用了group表，为了不改动fireball，在这里修改role_id为group_id ================ --> 
+  <sql key="getUsersByRole" remarks="">
+    <![CDATA[
+      SELECT T2.*
+      FROM CM_GROUP_USER T1
+      JOIN CM_USER T2 ON T1.USER_ID=T2.ID
+      WHERE T1.GROUP_ID=?
+    ]]>
+  </sql>
+  
+  <sql key="searchGroups" remarks="">
+    <![CDATA[
+      SELECT
+        T1.*,
+        T2.NAME AS PARENT_NAME
+      FROM CM_GROUP T1
+      LEFT JOIN CM_GROUP T2 ON T1.PARENT_ID = T2.ID
+      <#if schName?? || schParentName??> WHERE</#if><#if schName??> T1.NAME LIKE ?</#if><#if schParentName??><#if schName??> AND</#if> T2.NAME LIKE ?</#if>
+    ]]>
+  </sql>
+
+  <sql key="getUserRole" remarks="">
+    <![CDATA[
+      SELECT
+        T1.*
+      FROM CM_ROLE T1 
+      LEFT JOIN CM_ROLE_USER T2 ON T1.ID = T2.ROLE_ID
+      where T2.USER_ID = ?
+    ]]>
+  </sql>
+  
+  <sql key="searchRoles" remarks="">
+    <![CDATA[
+      SELECT
+        T1.*,
+        T2.NAME AS PARENT_NAME
+      FROM CM_ROLE T1 LEFT JOIN CM_ROLE T2 ON T1.PARENT_ID = T2.ID
+      <#if schName?? || schParentName??> WHERE</#if><#if schName??> T1.NAME LIKE ?</#if><#if schParentName??><#if schName??> AND</#if> T2.NAME LIKE ?</#if>
+    ]]>
+  </sql>
+
+  <sql key="getGroupsForUser" remarks="">
+    <![CDATA[
+      SELECT
+        T2.*
+      FROM CM_GROUP_USER T1
+      JOIN CM_GROUP T2 ON T1.GROUP_ID = T2.ID
+      WHERE T1.USER_ID = ?
+    ]]>
+  </sql>
+
+  <sql key="getRolesForUser" remarks="">
+    <![CDATA[
+      SELECT
+        T2.*
+      FROM CM_ROLE_USER T1
+      LEFT JOIN CM_ROLE T2 ON T1.ROLE_ID = T2.ID
+      WHERE T1.USER_ID = ?
+    ]]>
+  </sql>
+
+  <sql key="searchTasks" remarks="">
+    <![CDATA[
+      SELECT
+        T2.*
+      FROM CM_TASK_DEF T1
+      LEFT JOIN CM_TASK T2 ON T1.TASK_DEF_CD = T2.TASK_DEF_CD
+      WHERE T1.ACTOR_USER_ID = ? OR T1.ACTOR_ROLE_CD IN (${userRoles}) AND T1.STAGE_NO <= T2.CURRENT_STAGE
+    ]]>
+  </sql>
+
+  <sql key="getExtraAttrTags" remarks="">
+    <![CDATA[
+      SELECT DISTINCT TAG FROM CM_EXTRA_ATTR WHERE REF_ID = ? AND REF_TYPE = ? ORDER BY CREATED_AT
+    ]]>
+  </sql>
+
+  <sql key="searchComments" remarks="">
+    <![CDATA[
+      SELECT * FROM CM_COMMENT WHERE REF_TYPE = ? AND REF_ID = ? 
+      <#if schName??> AND AUTHOR_NAME LIKE ?</#if>
+      <#if schPhone??> AND AUTHOR_MOBILE LIKE ?</#if>
+      ORDER BY CREATED_AT
+    ]]>
+  </sql>
+
+  <sql key="searchConfigs" remarks="">
+    <![CDATA[
+      SELECT * FROM CM_CONFIG
+      WHERE 1 = 1
+      <#if schKey??> KEY LIKE ?</#if>
+    ]]>
+  </sql>
+
+  <sql key="getPermission" remarks="">
+    <![CDATA[
+      SELECT
+        T1.*
+      FROM CM_PERMISSION T1
+      WHERE (T1.USER_ID = ? OR T1.ROLE_ID = (SELECT ROLE_ID FROM CM_ROLE_USER WHERE USER_ID = ?) OR T1.GROUP_ID = (SELECT GROUP_ID FROM CM_GROUP_USER WHERE USER_ID = ?))
+      AND T1.PRIVILEGE = ?
+      <#if schRef??>AND T1.REF_TYPE = ? AND T1.REF_ID = ?</#if>
+    ]]>
+  </sql>
+
+    
+</sqls>

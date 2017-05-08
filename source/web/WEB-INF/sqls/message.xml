@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ========================================================== -->
+<!--                                                            -->
+<!-- Copyright 2016, SanYet.com. All rights reserved.           -->
+<!--                                                            -->
+<!-- @author hanjian                                            -->
+<!--                                                            -->
+<!-- ========================================================== -->
+
+<sqls catalog="message">
+
+  <sql key="searchMessage" remarks="">
+    <![CDATA[
+      SELECT
+        *
+      FROM CM_MESSAGE
+      WHERE 1=1
+      <#if userId??>AND TO_USER_ID =  ?</#if>
+      <#if schName??>AND SUBJECT LIKE ?</#if>
+      <#if schCategoryName??>AND BODY LIKE ?</#if>
+    ]]>
+  </sql>
+
+  <sql key="getLatestMessages" remarks="">
+    <![CDATA[
+      SELECT
+        *
+      FROM CM_MESSAGE
+      WHERE TO_USER_ID = ?
+      ORDER BY CREATED_AT DESC
+      LIMIT 0 , ${latestNum};
+    ]]>
+  </sql>
+    
+  <sql key="getUnreadMessages" remarks="">
+    <![CDATA[
+      SELECT
+        *
+      FROM CM_MESSAGE
+      WHERE TO_USER_ID = ?
+      AND IS_READ = 'N'
+    ]]>
+  </sql>
+  
+</sqls>

@@ -32,6 +32,7 @@
   <http pattern="/ecard/**" security="none"/>
   <http pattern="/weixin/handleMessage" security="none"/>
   <http pattern="/sfjs/**" security="none"/>
+  <http pattern="/szcea/**" security="none"/>
 
   <http auto-config="true">
     <headers>

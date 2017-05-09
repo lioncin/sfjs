@@ -1,286 +1,484 @@
-﻿<%@ include file="/szcea/includes/header.jsp"%>
+﻿<%@ page import="java.util.Iterator"%>
+<%@ page import="java.util.List"%>
+<%@ page import="java.util.Map"%>
+<%@ page import="java.util.ArrayList"%>
+<%@ page import="java.util.Date"%>
+<%@ page import="java.util.Locale"%>
+<%@ page import="java.util.HashMap"%>
+<%@ page import="java.util.LinkedHashMap"%>
 
-<div id="home-bg">
-    <div class="bg">
-      <img src="<c:url value="/szcea/statics/images/main-bg.jpg"/>"/>
-    </div>
-    
-</div>
-<div id="wuyan">
-    <div class="bg">
-      <img src="<c:url value="/szcea/statics/images/dynamic.jpg"/>"/>
-    </div>
-</div><!-- wu yan background -->
+<%@ page import="org.springframework.web.servlet.support.RequestContextUtils"%>
 
-<div id="home">
-    <div class="dynamic-container">
-      <div class="dynamic-title">
-        <div class="line"></div>
-        <div class="dynamic-title-img"><img src="<c:url value="/szcea/statics/images/dynamic-title.png"/>"></div>
-        <div class="line"></div>
+<%@ page import="com.sanyet.fireball.base.entity.User"%>
+<%@ page import="com.sanyet.fireball.base.AppContext"%>
+<%@ page import="com.sanyet.fireball.base.AppConsts"%>
+<%@ page import="com.sanyet.fireball.base.AppUtil"%>
+<%@ page import="com.sanyet.fireball.base.validation.ValidError"%>
+<%@ page import="com.sanyet.fireball.base.validation.Validator"%>
+<%@ page import="com.sanyet.fireball.base.util.DateUtil"%>
+<%@ page import="com.sanyet.fireball.base.util.FileUtil"%>
+<%@ page import="com.sanyet.fireball.base.util.MiscUtil"%>
+<%@ page import="com.sanyet.fireball.base.util.NumberUtil"%>
+<%@ page import="com.sanyet.fireball.base.util.ParamUtil"%>
+<%@ page import="com.sanyet.fireball.base.util.StringUtil"%>
+<%@ page import="com.sanyet.fireball.base.util.HtmlElemHelper"%>
+<%@ page import="com.sanyet.fireball.base.message.MessageUtil"%>
+<%@ page import="com.sanyet.fireball.content.ContentUtil"%>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="/WEB-INF/tlds/fireball.tld" prefix="f"%>
+<%@ taglib uri="/WEB-INF/tlds/szcea.tld" prefix="ce"%>
+
+<%
+  // globle codes
+  String siteLang = "zh-CN";  // en, zh-CN
+
+  AppContext _appCtx = AppUtil.getAppContext();
+
+  String APP_PATH = request.getContextPath();
+
+  pageContext.setAttribute("website", ContentUtil.getWebsite());
+%>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>主页</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="<c:url value="/szcea/statics/styles/b.css"/>"/>
+  <link rel="stylesheet" type="text/css" href="<c:url value="/szcea/statics/styles/a.css"/>"/>
+</head>
+<body>
+  <div class="container">
+    <div class="content">
+      <div class="header-container">
+        <div class="header-content">
+          <div class="banner">
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+              <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                   <img src="<c:url value="/szcea/statics/images/banner4.png"/>"/>
+                </div>
+                <div class="item">
+                   <img src="<c:url value="/szcea/statics/images/banner4.png"/>"/>
+                </div>
+                <div class="item">
+                   <img src="<c:url value="/szcea/statics/images/banner4.png"/>"/>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="header-logo">
+            <img src="<c:url value="/szcea/statics/images/logo.png"/>"/>
+          </div>
+        </div>
+        <div class="nav-container">
+          <div class="nav-content">
+            <div class="nav-item">
+              <a href="/">首页</a>
+            </div>
+            <div class="nav-item">
+              <a href="/">建设动态</a>
+            </div>
+            <div class="nav-item">
+              <a href="/">项目建设</a>
+            </div>
+            <div class="nav-item">
+              <a href="/">师资队伍</a>
+            </div>
+            <div class="nav-item">
+              <a href="/">制度建设</a>
+            </div>
+            <div class="nav-item">
+              <a href="/">督导通报</a>
+            </div>
+            <div class="nav-item">
+              <a href="/">校企合作</a>
+            </div>
+            <div class="nav-item">
+              <a href="/">政策法规</a>
+            </div>
+            <div class="nav-item last">
+              <a href="/">资料下载</a>
+            </div>
+
+          </div>
+        </div>
+        <div class="row">
+          <div class="row-content">
+            <div class="row-left">
+              <span class="js_today">今天：Tue May 09 2017 16:10:42 GMT+0800 (中国标准时间)</span>
+            </div>
+            <div class="row-right">
+
+            </div>
+          </div>
+        </div>
+        <div class="line">
+          <div class="line-content">
+            <div class="line-item line-top1">
+              <div class="line-header">
+                <div class="line-header-t">建设动态</div>
+                <div class="line-header-more">更多>></div>
+              </div>
+              <div class="line-banner">
+                <div id="carousel-example-generic2" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                    <li data-target="#carousel-example-generic2" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel-example-generic2" data-slide-to="1"></li>
+                    <li data-target="#carousel-example-generic2" data-slide-to="2"></li>
+                    </ol>
+
+                  <div class="carousel-inner" role="listbox">
+                    <div class="item active">
+                        <img class="line-banner-img" src="<c:url value="/szcea/statics/images/line-banner.jpg"/>"/>
+                    </div>
+                    <div class="item">
+                        <img class="line-banner-img" src="<c:url value="/szcea/statics/images/line-banner.jpg"/>"/>
+                    </div>
+                    <div class="item">
+                       <img class="line-banner-img" src="<c:url value="/szcea/statics/images/line-banner.jpg"/>"/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="line-list">
+                <ul>
+                  <li>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</li>
+                  <li>服务外包服务外包服务外包服务外包服务外</li>
+                  <li>服务外包服务外包服务外包服务外包服务外</li>
+                  <li>服务外包服务外包服务外包服务外包服务外</li>
+                </ul>
+              </div>
+            </div>
+            <div class="line-item line-top2">
+              <div class="line-header-b">
+                <div class="line-header-t line-header-b-t">项目建设</div>
+                <div class="line-header-more">更多>></div>
+              </div>
+              <div class="line-title">
+                <div class="line-title-b">苏州服务外包学院</div>
+              </div>
+              <div class="line-list-date">
+                <ul>
+                  <li>
+                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
+                    <span>2017-05-09</span>
+                  </li>
+                  <li>
+                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
+                    <span>2017-05-09</span>
+                  </li>
+                  <li>
+                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
+                    <span>2017-05-09</span>
+                  </li>
+                  <li>
+                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
+                    <span>2017-05-09</span>
+                  </li>
+                  <li>
+                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
+                    <span>2017-05-09</span>
+                  </li>
+                  <li>
+                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
+                    <span>2017-05-09</span>
+                  </li>
+                  <li>
+                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
+                    <span>2017-05-09</span>
+                  </li>
+                  <li>
+                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
+                    <span>2017-05-09</span>
+                  </li>
+                  <li>
+                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
+                    <span>2017-05-09</span>
+                  </li>
+                  <li>
+                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
+                    <span>2017-05-09</span>
+                  </li>
+                  <li>
+                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
+                    <span>2017-05-09</span>
+                  </li>
+                  <li>
+                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
+                    <span>2017-05-09</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="line-item line-top3">
+              <div class="line-header">
+                <div class="line-header-t">师资队伍</div>
+                <div class="line-header-more">更多>></div>
+              </div>
+              <div class="line-video">
+
+              </div>
+              <div class="line-list">
+                <ul>
+                  <li>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</li>
+                  <li>服务外包服务外包服务外包服务外包服务外</li>
+                  <li>服务外包服务外包服务外包服务外包服务外</li>
+                  <li>服务外包服务外包服务外包服务外包服务外</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="line">
+          <div class="line-content line-mid">
+            <div class="line-item line-top2 line-mid1">
+              <div class="line-header-b">
+                <div class="line-header-t line-header-b-t">制度建设</div>
+                <div class="line-header-more">更多>></div>
+              </div>
+              <div class="line-list-date">
+                <ul>
+                  <li>
+                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
+                    <span>2017-05-09</span>
+                  </li>
+                  <li>
+                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
+                    <span>2017-05-09</span>
+                  </li>
+                  <li>
+                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
+                    <span>2017-05-09</span>
+                  </li>
+                  <li>
+                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
+                    <span>2017-05-09</span>
+                  </li>
+                  <li>
+                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
+                    <span>2017-05-09</span>
+                  </li>
+                  <li>
+                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
+                    <span>2017-05-09</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="line-item line-top2 line-mid2">
+              <div class="line-header-b">
+                <div class="line-header-t line-header-b-t">督导通报</div>
+                <div class="line-header-more">更多>></div>
+              </div>
+              <div class="line-list-date">
+                <ul>
+                  <li>
+                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
+                    <span>2017-05-09</span>
+                  </li>
+                  <li>
+                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
+                    <span>2017-05-09</span>
+                  </li>
+                  <li>
+                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
+                    <span>2017-05-09</span>
+                  </li>
+                  <li>
+                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
+                    <span>2017-05-09</span>
+                  </li>
+                  <li>
+                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
+                    <span>2017-05-09</span>
+                  </li>
+                  <li>
+                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
+                    <span>2017-05-09</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="line-item line-top3 line-mid3">
+              <div class="line-header">
+                <div class="line-header-t">校企合作</div>
+                <div class="line-header-more">更多>></div>
+              </div>
+              <div class="line-list">
+                <ul>
+                  <li>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</li>
+                  <li>服务外包服务外包服务外包服务外包服务外</li>
+                  <li>服务外包服务外包服务外包服务外包服务外</li>
+                  <li>服务外包服务外包服务外包服务外包服务外</li>
+                  <li>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</li>
+                  <li>服务外包服务外包服务外包服务外包服务外</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="line">
+          <div class="line-content line-mid">
+            <div class="line-item line-top2 line-mid1">
+              <div class="line-header-b">
+                <div class="line-header-t line-header-b-t">政策法规</div>
+                <div class="line-header-more">更多>></div>
+              </div>
+              <div class="line-list-date">
+                <ul>
+                  <li>
+                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
+                    <span>2017-05-09</span>
+                  </li>
+                  <li>
+                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
+                    <span>2017-05-09</span>
+                  </li>
+                  <li>
+                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
+                    <span>2017-05-09</span>
+                  </li>
+                  <li>
+                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
+                    <span>2017-05-09</span>
+                  </li>
+                  <li>
+                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
+                    <span>2017-05-09</span>
+                  </li>
+                  <li>
+                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
+                    <span>2017-05-09</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="line-item line-top2 line-mid2">
+              <div class="line-header-b">
+                <div class="line-header-t line-header-b-t">资料下载</div>
+                <div class="line-header-more">更多>></div>
+              </div>
+              <div class="line-list-date">
+                <ul>
+                  <li>
+                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
+                    <span>2017-05-09</span>
+                  </li>
+                  <li>
+                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
+                    <span>2017-05-09</span>
+                  </li>
+                  <li>
+                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
+                    <span>2017-05-09</span>
+                  </li>
+                  <li>
+                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
+                    <span>2017-05-09</span>
+                  </li>
+                  <li>
+                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
+                    <span>2017-05-09</span>
+                  </li>
+                  <li>
+                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
+                    <span>2017-05-09</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="line-item line-top3 line-mid3">
+              <div class="line-header">
+                <div class="line-header-t">上级文件</div>
+                <div class="line-header-more">更多>></div>
+              </div>
+              <div class="line-list">
+                <ul>
+                  <li>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</li>
+                  <li>服务外包服务外包服务外包服务外包服务外</li>
+                  <li>服务外包服务外包服务外包服务外包服务外</li>
+                  <li>服务外包服务外包服务外包服务外包服务外</li>
+                  <li>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</li>
+                  <li>服务外包服务外包服务外包服务外包服务外</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer">
+            <div class="footer-top-bg">
+            <div class="footer-top">
+              友情链接 ：
+              <a href="#" target="_blank">苏州服务外包学院</a>
+              <span>|</span>
+              <a href="#" target="_blank">苏州服务外包学院</a>
+            </div>
+            </div>
+            <div class="footer-content-bg">
+            <div class="footer-content">
+              <div class="footer-address">
+                <div class="footer-list">
+                  <a href="/">首页</a>  <span>|</span>
+                      <a href="#">学院概况</a>      <span>|</span>
+                      <a href="#">院校设置</a>      <span>|</span>
+                      <a href="#">学校概况</a>
+                </div>
+                <div class="footer-tel">
+                  <span class="fa fa-phone"></span>0512-54551222
+                </div>
+                <div class="footer-contact">
+                  <div style="padding-bottom: 8px;">邮箱：mi@sisd.edu.cn</div>
+                  <div>地址：苏州工业园区若水路99号</div>
+                </div>
+              </div>
+              <div class="footer-weixin">
+                  <img src="./images/code.jpg" class="slide-img">
+                      <div class="footer-weixin-title">扫一扫，关注我们</div>
+              </div>
+            </div>
+             </div>
+        </div>
+
+
+
+
       </div>
-
-      <div class="dynamic-content">
-        <div class="dynamic-left">
-          <c:forEach var="row" items="${exhibitionDynamics}">
-            <img class="hidden" src="<f:download path="${row.attachments[0].path }" />" />
-          </c:forEach>
-        </div>
-        <div class="dynamic-right">
-          <div class="news-more"><f:message key="ce.website.member.more" /></div>
-          <div class="news-content">
-            <div class="news-list">
-              <c:forEach var="row" items="${exhibitionDynamics}">
-                <a class="news-line" href="<c:url value="/szcea/content/" />${row.id}">
-                  <div class="news-spot">.</div>
-                  <div class="news-title"><c:out value="${row.name}"/></div>
-                  <div class="news-date"><f:date value="${row.createdAt}"/></div>
-                </a>
-              </c:forEach>
-              <div class="cls"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="dynamic-title">
-          <div class="line"></div>
-          <div class="dynamic-title-img"><img src="<c:url value="/szcea/statics/images/special.png"/>"></div>
-          <div class="line"></div>
-        </div>
-        <div class="dynamic-container">
-          <div class="dynamic-content">
-            <div class="special-content" onclick="location.href='<c:url value="/szcea/content/" />110'">
-              <img src="<c:url value="/szcea/statics/images/special-content.png"/>">
-            </div>
-          </div>
-        </div>
-
-        <div class="dynamic-title">
-          <div class="line"></div>
-          <div class="dynamic-title-img">
-            <img src="<c:url value="/szcea/statics/images/wonderful.png"/>">
-          </div>
-          <div class="line"></div>
-        </div>
-
-        <div class="wonderful-container">
-          <div class="wonderful-content">
-            <div class="wonderful-list">
-              <c:if test="${not empty jingcaiContent }">
-                <c:forEach var="row" items="${jingcaiContent }">
-                  <a class="wonderful-item" href="<c:url value="/szcea/content/" />${row.id}">
-                    <img src="<f:download path="${row.attachments[0].path }" />" />
-                  </a>
-                </c:forEach>
-              </c:if>
-
-              <div class="cls"></div>
-            </div>
-          </div>
-        </div><!-- 精彩瞬间 -->
-
-        <div class="su-container">
-          <div class="su-img"></div>
-          <div class="su-left left">
-            <img class="flower" src="<c:url value="/szcea/statics/images/flower.png"/>">
-            <div class="content">
-              <div class="su-title">
-                <div class="su-title-img">
-                  <img src="<c:url value="/szcea/statics/images/flower-1.png"/>">
-                </div>
-                <div class="en">Exhibition Preview</div>
-              </div>
-              <div class="su-mid">
-                <div class="local current" type="25"><f:message key="ce.website.Trailer.bshz" /></div>
-                <div class="m">|</div>
-                <div class="other" type="26"><f:message key="ce.website.Trailer.wdhz" /></div>
-                <div class="cls"></div>
-              </div>
-              <div class="su-content"></div>
-            </div>
-          </div>
-          <div class="su-left right">
-            <img class="flower" src="<c:url value="/szcea/statics/images/flower.png"/>">
-            <div class="content">
-              <div class="su-title">
-                <div class="su-title-img">
-                  <img src="<c:url value="/szcea/statics/images/flower-2.png"/>">
-                </div>
-                <div class="en">Service</div>
-              </div>
-              <div class="su-service">
-                <a href="<c:url value="/szcea/service/29" />" class="btn">品牌展会</a>
-                <a href="<c:url value="/szcea/service/30" />" class="btn">院校机构</a>
-                <a href="<c:url value="/szcea/service/31" />" class="btn">礼仪翻译</a>
-                <a href="<c:url value="/szcea/service/32" />" class="btn">搭建公司</a>
-                <a href="<c:url value="/szcea/service/33" />" class="btn">广告</a>
-                <a href="<c:url value="/szcea/service/34" />" class="btn">物流</a>
-                <a href="<c:url value="/szcea/service/35" />" class="btn">酒店</a>
-                <a href="<c:url value="/szcea/service/36" />" class="btn">旅游</a>
-                <div class="cls"></div>
-              </div>
-            </div>
-          </div>
-          <div class="cls"></div>
-        </div><!-- 会展服务 -->
-
-        <div class="dynamic-title">
-          <div class="line"></div>
-          <div class="dynamic-title-img">
-            <img src="<c:url value="/szcea/statics/images/member.png"/>">
-          </div>
-          <div class="line"></div>
-        </div><!-- 会员天地 -->
-
-        <div class="dynamic-container">
-          <div class="dynamic-content">
-            <div class="member-list">
-              <ce:member size="6"/>
-            </div>
-          </div>
-        </div><!-- 会员天地 -->
-
-        <div class="dynamic-title">
-          <div class="line"></div>
-          <div class="dynamic-title-img">
-            <img src="<c:url value="/szcea/statics/images/site.png"/>">
-          </div>
-          <div class="line"></div>
-        </div><!-- 场馆介绍 -->
-
-
-        <div class="bottom-container">
-          <div class="dynamic-container">
-            <div class="dynamic-content">
-              <div class="site-list">
-                <div class="sites">
-                  <c:if test="${not empty nevueImgs }">
-                    <c:forEach var="rows" items="${nevueImgs }">
-                      <a class="site-item" href="<c:url value="/szcea/content/" />${rows.id}">
-                        <div class="site-item-img"><img src="<f:download path="${rows.attachments[0].path }" />" /></div>
-                        <div class="site-item-title">${rows.name }</div>
-                      </a>
-                    </c:forEach>
-                  </c:if>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div><!-- 场馆介绍 -->
     </div>
-</div><!-- end of content -->
+  </div>
 
-<%@ include file="/szcea/includes/footer.jsp"%>
+  <script src="<c:url value="/szcea/statics/scripts/jquery.min.js"/>"></script>
+  <script src="<c:url value="/szcea/statics/scripts/a.js"/>"></script>
+  <script src="<c:url value="/szcea/statics/scripts/b.js"/>"></script>
+</body>
+</html>
 
 <script type="text/javascript">
-var LIMIT = 8;
-
-$(function(){
-  $('.site-list').hover(function(){
-    clearInterval(_tid);
-  }, function(){
-    beginRoll();
-  });
-
-  $('a.news-line').hover(function(){
-    var index = $(this).index('a.news-line');
-    $('.dynamic-left img').addClass('hidden');
-    $('.dynamic-left img').eq(index).removeClass('hidden');
-  },function(){});
-
-  $('.su-mid .local').click(function(){
-    if(!$(this).hasClass('current')){
-      $(this).addClass('current');
-      $(this).parent().find('.other').removeClass('current');
-      var type = $(this).attr('type');
-      getYuGao(LIMIT,type);
+  var data = [
+    {amount : 11},
+    {amount : 22},
+    {amount : 33},
+    {amount : 44},
+    {amount : undefined}
+  ]
+  var data_map = data.map(function(e){
+    if (e.amount == undefined) {
+      e.amount = 0;
+    }else{
+      return e.amount;
     }
-  });
 
-  $('.su-mid .other').click(function(){
-    if(!$(this).hasClass('current')){
-      $(this).addClass('current');
-      $(this).parent().find('.local').removeClass('current');
-      var type = $(this).attr('type');
-      getYuGao(LIMIT,type);
-    }
-  });
+  })
+  console.log('data_map',data_map);
+  var sum = data.reduce(function(a,c) {
+    console.log(c.amount);
+    return a + c.amount;
+  },0);
 
-  getYuGao(LIMIT,25);
-
-  getYuGao(LIMIT,27);
-
-  initImgs();
-
-  resizeScreen();
-
-});
-
-function initImgs(){
-  var w = $('.site-list').width() / 3 - 30;
-  $('.site-item').width(w);
-  var size = $('.site-item').size();
-  $('.sites').width((w+30) * size);
-
-  beginRoll();
-}
-
-var imgIndex = 0;
-function beginRoll(){
-  var size = $('a.site-item').size();
-  var left = parseInt($('.site-list .sites').css('left').split('px')[0]);
-  $('.site-list .sites').css('left',left);
-  _tid = setInterval(function(){
-    left -= 2;
-    if(left < -1 * $('.site-item').width() * (size - 3)){
-      var node = $('.site-item').eq(imgIndex).prop("outerHTML");
-      $('.site-list .sites').append(node);
-      imgIndex++;
-
-      var _w = $('.site-list .sites').width() + imgIndex * $('.site-item').width();
-      $('.site-list .sites').width(_w);
-    }
-    $('.site-list .sites').css('left', left + 'px');
-  }, 100);
-}
-
-function getYuGao(limit,type){
-  var url = '<c:url value="/szcea/getYuGao" />';
-  $.ajax({
-    'url':url,
-    'type':'POST',
-    'data':{
-      type:type,
-      limit:limit
-    },
-    success:function(data,status){
-      var d = data['data']['data'];
-      if (d) {
-        showYuGao(d,type);
-      }
-      
-    }
-  });
-}
-
-function showYuGao(data,type){
-  var size = data.length;
-  var _html = '';
-  for(var i=0;i<size;i++){
-      var d = data[i];
-      _html += '<a class="service-i" href="<c:url value="/szcea/content/" />/' +d['id']+ '">' + d['name'] + '</a>';
-  }
-  if(type=='25' || type=='26'){
-    $('.su-left .su-content').eq(0).html(_html);
-  }else{
-    $('.su-left .su-content').eq(1).html(_html);
-  }
-}
-
-function resizeScreen(){
-  var h = $('#home').width() * 0.8 * 0.45;
-  $('.su-left .content').height(h);
-}
+  console.log(sum);
 
 </script>

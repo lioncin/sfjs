@@ -406,6 +406,7 @@ CREATE TABLE CT_CONTENT (
   CAN_COMMENT       CHAR(1) DEFAULT 'N'         COMMENT '可否评论',
   STICK_TOP         CHAR(1) DEFAULT 'N'         COMMENT '置顶',
   STATUS            CHAR(1) DEFAULT 'P'         COMMENT '状态 P待审批 A已审批 I停用',
+  REMARKS           VARCHAR(255),
   CREATED_AT        DATETIME NOT NULL,
   CREATED_BY        INT UNSIGNED NOT NULL,
   UPDATED_AT        DATETIME,

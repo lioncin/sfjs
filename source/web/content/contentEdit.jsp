@@ -33,7 +33,7 @@
       }else{
           statusSelOpts.put("P", MessageUtil.getMessage("ct.status.p"));
           statusSelOpts.put("A", MessageUtil.getMessage("ct.status.c"));
-          statusSelOpts.put("I", MessageUtil.getMessage("cm.status.i")); 
+          statusSelOpts.put("I", MessageUtil.getMessage("cm.status.i"));
       }
   }else{
           status = "P";
@@ -136,10 +136,6 @@
         <div class="form-group">
           <label class="col-md-2 control-label"><f:message key="cm.content.publishDate"/></label>
           <div class="col-md-10"><input class="form-control cal" name="publishDate" value="<f:date value="${entity.publishDate}"/>"></div>
-        </div>
-        <div class="form-group">
-          <label class="col-md-2 control-label"><f:message key="cm.status"/></label>
-          <div class="col-md-10"><%=HtmlElemHelper.generateSelect(statusSelAttrs, statusSelOpts, status)%></div>
         </div>
         <div class="form-group">
           <label class="col-md-2 control-label"><f:message key="cm.attachment"/></label>

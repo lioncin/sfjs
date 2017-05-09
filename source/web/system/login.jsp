@@ -1,4 +1,4 @@
-<%@ include file="/includes/imports.jsp"%>
+﻿<%@ include file="/includes/imports.jsp"%>
 
 <%
   // java codes
@@ -39,7 +39,7 @@
   </div>
 </div>
 
-<div id="copyright"><f:message key="in.footer.copyright"/></div>
+<div id="copyright">苏州工业园区服务外包有限公司</div>
 <script src="<c:url value="/statics/scripts/utils.js"/>"></script>
 <%@ include file="/includes/validation.jsp"%>
 

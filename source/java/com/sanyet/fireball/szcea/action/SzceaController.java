@@ -94,4 +94,16 @@ public final class SzceaController {
 
         return "/szcea/home.jsp";
     }
+
+    @RequestMapping("detail")
+    public String detail(HttpServletRequest request){
+        return "/szcea/detail.jsp";
+    }
+
+    @RequestMapping("content/{id}")
+    public String content(@PathVariable int id, HttpServletRequest request){
+        Content c = contentService.getContent(id);
+        ParamUtil.setRequestAttr(request, "content", c);
+        return "/szcea/content.jsp";
+    }
 }

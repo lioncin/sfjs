@@ -75,31 +75,31 @@
         <div class="nav-container">
           <div class="nav-content">
             <div class="nav-item">
-              <a href="/">首页</a>
+              <a href="<c:url value="/szcea/detail" />">首页</a>
             </div>
             <div class="nav-item">
-              <a href="/">建设动态</a>
+              <a href="<c:url value="/szcea/detail" />" />建设动态</a>
             </div>
             <div class="nav-item">
-              <a href="/">项目建设</a>
+              <a href="<c:url value="/szcea/detail" />" />项目建设</a>
             </div>
             <div class="nav-item">
-              <a href="/">师资队伍</a>
+              <a href="<c:url value="/szcea/detail" />" />师资队伍</a>
             </div>
             <div class="nav-item">
-              <a href="/">制度建设</a>
+              <a href="<c:url value="/szcea/detail" />" />制度建设</a>
             </div>
             <div class="nav-item">
-              <a href="/">督导通报</a>
+              <a href="<c:url value="/szcea/detail" />" />督导通报</a>
             </div>
             <div class="nav-item">
-              <a href="/">校企合作</a>
+              <a href="<c:url value="/szcea/detail" />" />校企合作</a>
             </div>
             <div class="nav-item">
-              <a href="/">政策法规</a>
+              <a href="<c:url value="/szcea/detail" />" />政策法规</a>
             </div>
             <div class="nav-item last">
-              <a href="/">资料下载</a>
+              <a href="<c:url value="/szcea/detail" />" />资料下载</a>
             </div>
 
           </div>
@@ -168,7 +168,7 @@
                     <c:forEach var="row" items="${xmjs }">
                       <li>
                         <a class="wonderful-item" href="<c:url value="/szcea/content/" />${row.id}">${row.name}</a>
-                        <span>${row.createdAt}</span>
+                        <span><f:date value="${row.createdAt}"/></span>
                       </li>
                     </c:forEach>
                   </c:if>
@@ -180,14 +180,13 @@
                 <div class="line-header-t">师资队伍</div>
                 <div class="line-header-more">更多>></div>
               </div>
-              </div>
               <div class="line-list">
                 <ul>
                   <c:if test="${not empty szdw }">
                     <c:forEach var="row" items="${szdw }">
                       <li>
                         <a class="wonderful-item" href="<c:url value="/szcea/content/" />${row.id}">${row.name}</a>
-                        <span>${row.createdAt}</span>
+                        <span><f:date value="${row.createdAt}"/></span>
                       </li>
                     </c:forEach>
                   </c:if>
@@ -210,7 +209,7 @@
                     <c:forEach var="row" items="${zdjs }">
                       <li>
                         <a class="wonderful-item" href="<c:url value="/szcea/content/" />${row.id}">${row.name}</a>
-                        <span>${row.createdAt}</span>
+                        <span><f:date value="${row.createdAt}"/></span>
                       </li>
                     </c:forEach>
                   </c:if>
@@ -228,7 +227,7 @@
                     <c:forEach var="row" items="${ddtb }">
                       <li>
                         <a class="wonderful-item" href="<c:url value="/szcea/content/" />${row.id}">${row.name}</a>
-                        <span>${row.createdAt}</span>
+                        <span><f:date value="${row.createdAt}"/></span>
                       </li>
                     </c:forEach>
                   </c:if>
@@ -246,7 +245,7 @@
                     <c:forEach var="row" items="${xqhz }">
                       <li>
                         <a class="wonderful-item" href="<c:url value="/szcea/content/" />${row.id}">${row.name}</a>
-                        <span>${row.createdAt}</span>
+                        <span><f:date value="${row.createdAt}"/></span>
                       </li>
                     </c:forEach>
                   </c:if>
@@ -270,7 +269,7 @@
                     <c:forEach var="row" items="${zcfg }">
                       <li>
                         <a class="wonderful-item" href="<c:url value="/szcea/content/" />${row.id}">${row.name}</a>
-                        <span>${row.createdAt}</span>
+                        <span><f:date value="${row.createdAt}"/></span>
                       </li>
                     </c:forEach>
                   </c:if>
@@ -288,7 +287,7 @@
                     <c:forEach var="row" items="${zlxz }">
                       <li>
                         <a class="wonderful-item" href="<c:url value="/szcea/content/" />${row.id}">${row.name}</a>
-                        <span>${row.createdAt}</span>
+                        <span><f:date value="${row.createdAt}"/></span>
                       </li>
                     </c:forEach>
                   </c:if>
@@ -311,7 +310,7 @@
             <div class="footer-content">
               <div class="footer-address">
                 <div class="footer-list">
-                  <a href="/">首页</a>  <span>|</span>
+                  <a href="<c:url value="/szcea/detail" />" />首页</a>  <span>|</span>
                       <a href="#">学院概况</a>      <span>|</span>
                       <a href="#">院校设置</a>      <span>|</span>
                       <a href="#">学校概况</a>
@@ -325,16 +324,12 @@
                 </div>
               </div>
               <div class="footer-weixin">
-                  <img src="./images/code.jpg" class="slide-img">
-                      <div class="footer-weixin-title">扫一扫，关注我们</div>
+                  <img src="<c:url value="/szcea/statics/images/siso.jpg"/>"/>
+                  <div class="footer-weixin-title">扫一扫，关注我们</div>
               </div>
             </div>
              </div>
         </div>
-
-
-
-
       </div>
     </div>
   </div>
@@ -361,12 +356,8 @@
     }
 
   })
-  console.log('data_map',data_map);
   var sum = data.reduce(function(a,c) {
     console.log(c.amount);
     return a + c.amount;
   },0);
-
-  console.log(sum);
-
 </script>

@@ -75,31 +75,31 @@
         <div class="nav-container">
           <div class="nav-content">
             <div class="nav-item">
-              <a href="<c:url value="/szcea/detail" />">首页</a>
+              <a href="<c:url value="/" />">首页</a>
             </div>
             <div class="nav-item">
-              <a href="<c:url value="/szcea/detail" />" />建设动态</a>
+              <a href="<c:url value="/szcea/detail" />/2" />建设动态</a>
             </div>
             <div class="nav-item">
-              <a href="<c:url value="/szcea/detail" />" />项目建设</a>
+              <a href="<c:url value="/szcea/detail" />/3" />项目建设</a>
             </div>
             <div class="nav-item">
-              <a href="<c:url value="/szcea/detail" />" />师资队伍</a>
+              <a href="<c:url value="/szcea/detail" />/4" />师资队伍</a>
             </div>
             <div class="nav-item">
-              <a href="<c:url value="/szcea/detail" />" />制度建设</a>
+              <a href="<c:url value="/szcea/detail" />/5" />制度建设</a>
             </div>
             <div class="nav-item">
-              <a href="<c:url value="/szcea/detail" />" />督导通报</a>
+              <a href="<c:url value="/szcea/detail" />/6" />督导通报</a>
             </div>
             <div class="nav-item">
-              <a href="<c:url value="/szcea/detail" />" />校企合作</a>
+              <a href="<c:url value="/szcea/detail" />/7" />校企合作</a>
             </div>
             <div class="nav-item">
-              <a href="<c:url value="/szcea/detail" />" />政策法规</a>
+              <a href="<c:url value="/szcea/detail" />/8" />政策法规</a>
             </div>
             <div class="nav-item last">
-              <a href="<c:url value="/szcea/detail" />" />资料下载</a>
+              <a href="<c:url value="/szcea/detail" />/9" />资料下载</a>
             </div>
 
           </div>

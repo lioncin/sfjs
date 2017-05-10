@@ -107,7 +107,7 @@
         <div class="row">
           <div class="row-content">
             <div class="row-left">
-              <span class="js_today">今天：Tue May 09 2017 16:10:42 GMT+0800 (中国标准时间)</span>
+              <span class="js_today"></span>
             </div>
             <div class="row-right">
 
@@ -124,9 +124,9 @@
               <div class="line-banner">
                 <div id="carousel-example-generic2" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
-                    <li data-target="#carousel-example-generic2" data-slide-to="0" class="active"></li>
-                    <li data-target="#carousel-example-generic2" data-slide-to="1"></li>
-                    <li data-target="#carousel-example-generic2" data-slide-to="2"></li>
+                      <li data-target="#carousel-example-generic2" data-slide-to="0" class="active"></li>
+                      <li data-target="#carousel-example-generic2" data-slide-to="1"></li>
+                      <li data-target="#carousel-example-generic2" data-slide-to="2"></li>
                     </ol>
 
                   <div class="carousel-inner" role="listbox">
@@ -144,10 +144,13 @@
               </div>
               <div class="line-list">
                 <ul>
-                  <li>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</li>
-                  <li>服务外包服务外包服务外包服务外包服务外</li>
-                  <li>服务外包服务外包服务外包服务外包服务外</li>
-                  <li>服务外包服务外包服务外包服务外包服务外</li>
+                  <c:if test="${not empty jsdt }">
+                    <c:forEach var="row" items="${jsdt }">
+                      <li>
+                        <a class="wonderful-item" href="<c:url value="/szcea/content/" />${row.id}">${row.name}</a>
+                      </li>
+                    </c:forEach>
+                  </c:if>
                 </ul>
               </div>
             </div>
@@ -161,54 +164,14 @@
               </div>
               <div class="line-list-date">
                 <ul>
-                  <li>
-                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
-                    <span>2017-05-09</span>
-                  </li>
-                  <li>
-                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
-                    <span>2017-05-09</span>
-                  </li>
-                  <li>
-                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
-                    <span>2017-05-09</span>
-                  </li>
-                  <li>
-                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
-                    <span>2017-05-09</span>
-                  </li>
-                  <li>
-                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
-                    <span>2017-05-09</span>
-                  </li>
-                  <li>
-                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
-                    <span>2017-05-09</span>
-                  </li>
-                  <li>
-                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
-                    <span>2017-05-09</span>
-                  </li>
-                  <li>
-                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
-                    <span>2017-05-09</span>
-                  </li>
-                  <li>
-                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
-                    <span>2017-05-09</span>
-                  </li>
-                  <li>
-                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
-                    <span>2017-05-09</span>
-                  </li>
-                  <li>
-                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
-                    <span>2017-05-09</span>
-                  </li>
-                  <li>
-                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
-                    <span>2017-05-09</span>
-                  </li>
+                  <c:if test="${not empty xmjs }">
+                    <c:forEach var="row" items="${xmjs }">
+                      <li>
+                        <a class="wonderful-item" href="<c:url value="/szcea/content/" />${row.id}">${row.name}</a>
+                        <span>${row.updateAt}</span>
+                      </li>
+                    </c:forEach>
+                  </c:if>
                 </ul>
               </div>
             </div>

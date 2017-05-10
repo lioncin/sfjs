@@ -232,7 +232,7 @@ public class NewsController {
         content.setCanComment(StringUtil.getBoolean(ParamUtil.getString(request, "canComment")));
         content.setStickTop(StringUtil.getBoolean(ParamUtil.getString(request, "stickTop")));
         content.setPublishDate(ParamUtil.getDate(request, "publishDate"));
-        content.setStatus(ParamUtil.getString(request, "status"));
+        content.setStatus("A");
         content.setExtraAttrs(ControllerHelper.getExtraAttrs(request));
         Attachment[] attchments = ControllerHelper.getAttachments(request);
         content.setAttachments(attchments);
@@ -273,7 +273,7 @@ public class NewsController {
                 entity.setCanComment(content.isCanComment());
                 entity.setStickTop(content.isStickTop());
                 entity.setPublishDate(content.getPublishDate());
-                entity.setStatus(content.getStatus());
+                entity.setStatus("A");
                 entity.setAttachments(content.getAttachments());
 
                 contentService.updateContent(entity);

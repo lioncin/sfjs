@@ -168,7 +168,7 @@
                     <c:forEach var="row" items="${xmjs }">
                       <li>
                         <a class="wonderful-item" href="<c:url value="/szcea/content/" />${row.id}">${row.name}</a>
-                        <span>${row.updateAt}</span>
+                        <span>${row.createdAt}</span>
                       </li>
                     </c:forEach>
                   </c:if>
@@ -180,15 +180,17 @@
                 <div class="line-header-t">师资队伍</div>
                 <div class="line-header-more">更多>></div>
               </div>
-              <div class="line-video">
-
               </div>
               <div class="line-list">
                 <ul>
-                  <li>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</li>
-                  <li>服务外包服务外包服务外包服务外包服务外</li>
-                  <li>服务外包服务外包服务外包服务外包服务外</li>
-                  <li>服务外包服务外包服务外包服务外包服务外</li>
+                  <c:if test="${not empty szdw }">
+                    <c:forEach var="row" items="${szdw }">
+                      <li>
+                        <a class="wonderful-item" href="<c:url value="/szcea/content/" />${row.id}">${row.name}</a>
+                        <span>${row.createdAt}</span>
+                      </li>
+                    </c:forEach>
+                  </c:if>
                 </ul>
               </div>
             </div>
@@ -204,30 +206,14 @@
               </div>
               <div class="line-list-date">
                 <ul>
-                  <li>
-                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
-                    <span>2017-05-09</span>
-                  </li>
-                  <li>
-                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
-                    <span>2017-05-09</span>
-                  </li>
-                  <li>
-                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
-                    <span>2017-05-09</span>
-                  </li>
-                  <li>
-                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
-                    <span>2017-05-09</span>
-                  </li>
-                  <li>
-                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
-                    <span>2017-05-09</span>
-                  </li>
-                  <li>
-                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
-                    <span>2017-05-09</span>
-                  </li>
+                  <c:if test="${not empty zdjs }">
+                    <c:forEach var="row" items="${zdjs }">
+                      <li>
+                        <a class="wonderful-item" href="<c:url value="/szcea/content/" />${row.id}">${row.name}</a>
+                        <span>${row.createdAt}</span>
+                      </li>
+                    </c:forEach>
+                  </c:if>
                 </ul>
               </div>
             </div>
@@ -238,30 +224,14 @@
               </div>
               <div class="line-list-date">
                 <ul>
-                  <li>
-                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
-                    <span>2017-05-09</span>
-                  </li>
-                  <li>
-                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
-                    <span>2017-05-09</span>
-                  </li>
-                  <li>
-                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
-                    <span>2017-05-09</span>
-                  </li>
-                  <li>
-                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
-                    <span>2017-05-09</span>
-                  </li>
-                  <li>
-                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
-                    <span>2017-05-09</span>
-                  </li>
-                  <li>
-                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
-                    <span>2017-05-09</span>
-                  </li>
+                  <c:if test="${not empty ddtb }">
+                    <c:forEach var="row" items="${ddtb }">
+                      <li>
+                        <a class="wonderful-item" href="<c:url value="/szcea/content/" />${row.id}">${row.name}</a>
+                        <span>${row.createdAt}</span>
+                      </li>
+                    </c:forEach>
+                  </c:if>
                 </ul>
               </div>
             </div>
@@ -272,12 +242,14 @@
               </div>
               <div class="line-list">
                 <ul>
-                  <li>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</li>
-                  <li>服务外包服务外包服务外包服务外包服务外</li>
-                  <li>服务外包服务外包服务外包服务外包服务外</li>
-                  <li>服务外包服务外包服务外包服务外包服务外</li>
-                  <li>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</li>
-                  <li>服务外包服务外包服务外包服务外包服务外</li>
+                  <c:if test="${not empty xqhz }">
+                    <c:forEach var="row" items="${xqhz }">
+                      <li>
+                        <a class="wonderful-item" href="<c:url value="/szcea/content/" />${row.id}">${row.name}</a>
+                        <span>${row.createdAt}</span>
+                      </li>
+                    </c:forEach>
+                  </c:if>
                 </ul>
               </div>
             </div>
@@ -294,30 +266,14 @@
               </div>
               <div class="line-list-date">
                 <ul>
-                  <li>
-                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
-                    <span>2017-05-09</span>
-                  </li>
-                  <li>
-                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
-                    <span>2017-05-09</span>
-                  </li>
-                  <li>
-                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
-                    <span>2017-05-09</span>
-                  </li>
-                  <li>
-                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
-                    <span>2017-05-09</span>
-                  </li>
-                  <li>
-                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
-                    <span>2017-05-09</span>
-                  </li>
-                  <li>
-                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
-                    <span>2017-05-09</span>
-                  </li>
+                  <c:if test="${not empty zcfg }">
+                    <c:forEach var="row" items="${zcfg }">
+                      <li>
+                        <a class="wonderful-item" href="<c:url value="/szcea/content/" />${row.id}">${row.name}</a>
+                        <span>${row.createdAt}</span>
+                      </li>
+                    </c:forEach>
+                  </c:if>
                 </ul>
               </div>
             </div>
@@ -328,46 +284,15 @@
               </div>
               <div class="line-list-date">
                 <ul>
-                  <li>
-                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
-                    <span>2017-05-09</span>
-                  </li>
-                  <li>
-                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
-                    <span>2017-05-09</span>
-                  </li>
-                  <li>
-                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
-                    <span>2017-05-09</span>
-                  </li>
-                  <li>
-                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
-                    <span>2017-05-09</span>
-                  </li>
-                  <li>
-                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
-                    <span>2017-05-09</span>
-                  </li>
-                  <li>
-                    <div>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</div>
-                    <span>2017-05-09</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="line-item line-top3 line-mid3">
-              <div class="line-header">
-                <div class="line-header-t">上级文件</div>
-                <div class="line-header-more">更多>></div>
-              </div>
-              <div class="line-list">
-                <ul>
-                  <li>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</li>
-                  <li>服务外包服务外包服务外包服务外包服务外</li>
-                  <li>服务外包服务外包服务外包服务外包服务外</li>
-                  <li>服务外包服务外包服务外包服务外包服务外</li>
-                  <li>服务外包服务外包服务外包服务外包服务外服务外包服务外包服务外包服务外包服务外</li>
-                  <li>服务外包服务外包服务外包服务外包服务外</li>
+                  <c:if test="${not empty zlxz }">
+                    <c:forEach var="row" items="${zlxz }">
+                      <li>
+                        <a class="wonderful-item" href="<c:url value="/szcea/content/" />${row.id}">${row.name}</a>
+                        <span>${row.createdAt}</span>
+                      </li>
+                    </c:forEach>
+                  </c:if>
+
                 </ul>
               </div>
             </div>

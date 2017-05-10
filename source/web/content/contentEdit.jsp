@@ -26,7 +26,8 @@
   statusSelAttrs.put("class", "form-control s");
   Map<String, String> statusSelOpts = new LinkedHashMap<String, String>();
   String status = entity.getStatus();
-  if(roleId == 1){
+  statusSelOpts.put("A", MessageUtil.getMessage("ct.status.p"));
+  /* if(roleId == 1){
       if (StringUtil.isEmpty(status)) {
           status = "P";
           statusSelOpts.put("P", MessageUtil.getMessage("ct.status.p"));
@@ -38,7 +39,7 @@
   }else{
           status = "P";
           statusSelOpts.put("P", MessageUtil.getMessage("ct.status.p"));
-  }
+  } */
 
   String titleKey = isCreate ? "ct.contentEdit.title.create" : "ct.contentEdit.title.edit";
 
@@ -136,6 +137,10 @@
         <div class="form-group">
           <label class="col-md-2 control-label"><f:message key="cm.content.publishDate"/></label>
           <div class="col-md-10"><input class="form-control cal" name="publishDate" value="<f:date value="${entity.publishDate}"/>"></div>
+        </div>
+        <div class="form-group" style="display:none;">
+          <label class="col-md-2 control-label"><f:message key="cm.status"/></label>
+          <div class="col-md-10"><%=HtmlElemHelper.generateSelect(statusSelAttrs, statusSelOpts, status)%></div>
         </div>
         <div class="form-group">
           <label class="col-md-2 control-label"><f:message key="cm.attachment"/></label>

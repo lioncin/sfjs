@@ -297,7 +297,6 @@ input{
     width: 75%;
 }
 .line-list-date ul li span{
-    float: left;
     width: 25%;
     text-align: right;
 }

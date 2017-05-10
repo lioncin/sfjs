@@ -5,7 +5,7 @@
             <div class="line-item line-top1">
               <div class="line-header">
                 <div class="line-header-t">建设动态</div>
-                <div class="line-header-more">更多>></div>
+                <a class="line-header-more" href="<c:url value="/szcea/detail" />/2">更多>></a>
               </div>
               <div class="line-banner">
                 <div id="carousel-example-generic2" class="carousel slide" data-ride="carousel">
@@ -43,7 +43,7 @@
             <div class="line-item line-top2">
               <div class="line-header-b">
                 <div class="line-header-t line-header-b-t">项目建设</div>
-                <div class="line-header-more">更多>></div>
+                <a class="line-header-more" href="<c:url value="/szcea/detail" />/3">更多>></a>
               </div>
               <div class="line-title">
                 <div class="line-title-b">苏州服务外包学院</div>
@@ -64,7 +64,7 @@
             <div class="line-item line-top3">
               <div class="line-header">
                 <div class="line-header-t">师资队伍</div>
-                <div class="line-header-more">更多>></div>
+                <a class="line-header-more" href="<c:url value="/szcea/detail" />/4">更多>></a>
               </div>
               <div class="line-list">
                 <ul>
@@ -87,7 +87,7 @@
             <div class="line-item line-top2 line-mid1">
               <div class="line-header-b">
                 <div class="line-header-t line-header-b-t">制度建设</div>
-                <div class="line-header-more">更多>></div>
+                <a class="line-header-more" href="<c:url value="/szcea/detail" />/5">更多>></a>
               </div>
               <div class="line-list-date">
                 <ul>
@@ -105,7 +105,7 @@
             <div class="line-item line-top2 line-mid2">
               <div class="line-header-b">
                 <div class="line-header-t line-header-b-t">督导通报</div>
-                <div class="line-header-more">更多>></div>
+                <a class="line-header-more" href="<c:url value="/szcea/detail" />/6">更多>></a>
               </div>
               <div class="line-list-date">
                 <ul>
@@ -123,7 +123,7 @@
             <div class="line-item line-top3 line-mid3">
               <div class="line-header">
                 <div class="line-header-t">校企合作</div>
-                <div class="line-header-more">更多>></div>
+                <a class="line-header-more" href="<c:url value="/szcea/detail" />/7">更多>></a>
               </div>
               <div class="line-list">
                 <ul>
@@ -147,7 +147,7 @@
             <div class="line-item line-top2 line-mid1">
               <div class="line-header-b">
                 <div class="line-header-t line-header-b-t">政策法规</div>
-                <div class="line-header-more">更多>></div>
+                <a class="line-header-more" href="<c:url value="/szcea/detail" />/8">更多>></a>
               </div>
               <div class="line-list-date">
                 <ul>
@@ -165,7 +165,7 @@
             <div class="line-item line-top2 line-mid2">
               <div class="line-header-b">
                 <div class="line-header-t line-header-b-t">资料下载</div>
-                <div class="line-header-more">更多>></div>
+                <a class="line-header-more" href="<c:url value="/szcea/detail" />/9">更多>></a>
               </div>
               <div class="line-list-date">
                 <ul>

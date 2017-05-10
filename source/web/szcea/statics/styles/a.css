@@ -20,6 +20,9 @@ input{
     font-family: 'Microsoft YaHei';
     color: #333;
 }
+.cls{
+    clear: both;
+}
 .nav-item,li,div{
     transition: color 0.1s linear 0s,
     background-color 0.2s linear 0s,
@@ -262,6 +265,17 @@ input{
     padding: 0 15px;
     cursor: pointer;
 }
+
+.line-list ul li a{
+    width: 75%;
+    float: left;
+}
+
+.line-list ul li span{
+    width: 25%;
+    float: right;
+}
+
 .line-list ul li:hover{
     color: #ff9800;
 }
@@ -299,6 +313,7 @@ input{
 .line-list-date ul li span{
     width: 25%;
     text-align: right;
+    float: right;
 }
 .line-list-date ul li div:hover{
     color: #ff9800;
@@ -414,6 +429,16 @@ input{
 .footer-top{
     margin: 0 auto;
 }
+.footer-top ul{
+    padding: 0;
+    margin: 0;
+}
+.footer-top ul li{
+    list-style: none;
+    margin: 0;
+    padding: 10px 6px;
+    float: left;
+}
 .footer-top a{
     color: #fff;
     padding-right: 5px;
@@ -439,7 +464,7 @@ input{
     justify-content: flex-end;
 }
 .footer-address{
-    width: 70%;
+    width: 100%;
     box-sizing: border-box;
     color: #cecece;
 }
@@ -458,20 +483,21 @@ input{
 }
 .footer-tel{
     padding-bottom: 20px;
-    font-size: 1.1em;
+    font-size: 0.9em;
+    text-align: center;
 }
 .footer-tel span{
     padding-right: 5px;
     font-size: 1.8em;
 }
 .footer-weixin{
-    width: 30%;
     box-sizing: border-box;
     text-align: center;
+    float: right;
 }
 .footer-weixin img{
-    width: 140px;
-    height: 140px;
+    width: 100px;
+    height: 100px;
 }
 .footer-weixin-title{
     color: #fff;
@@ -479,9 +505,7 @@ input{
     padding-top: 8px;
 }
 
-
 .line-nav{
-
     height: auto;
 }
 .line-nav-left{
@@ -490,7 +514,6 @@ input{
     height: auto;
     box-sizing: border-box;
     border: 1px solid #cacaca;
-    min-height: 480px;
 }
 .line-nav-content{
     width: 74%;
@@ -512,13 +535,36 @@ input{
 .line-nav-content-b{
     padding: 15px;
 }
-
+.line-nav-content-b li{
+    width: 100%;
+    list-style: none;
+}
+.line-nav-content-b li a{
+    display: inline-block;
+    width: 90%;
+    float: left;
+}
+.line-nav-content-b li span{
+    width: 10%;
+    float: right;
+}
 .line-nav-list{
     float: left;
     width: 100%;
     height: auto;
     box-sizing: border-box;
     padding: 15px;
+}
+.line-nav-list ul{
+    padding: 0;
+    margin: 0;
+}
+.line-nav-list ul li{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    height: 25px;
+    line-height: 25px;
 }
 .line-nav-item{
     float: left;

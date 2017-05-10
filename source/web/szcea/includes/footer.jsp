@@ -1,44 +1,59 @@
-<div class="cls"></div>
-
-<div id="footer">
-    <div id="footer-container">
-        <div class="links pb">
-            <f:message key="ce.website.home.footer"/>
-            <f:links tag="FRIEND" openNewWindow="true"/>
-            <div class="cls"></div>
+﻿<div class="footer">
+            <div class="footer-top-bg">
+            <div class="footer-top">
+              友情链接 ：
+              <f:links tag="FRIEND" openNewWindow="true"/>
+              <div class="cls"></div>
+            </div>
+            </div>
+            <div class="footer-content-bg">
+            <div class="footer-content">
+              <div class="footer-address">
+                <div class="footer-tel">
+                  中国·新加坡苏州工业园区若水路99号  电话：0512-62932151 传真：0512-62932000
+                </div>
+                <div class="footer-tel">
+                  示范建设办公室电话：0512-62932151 传真：0512-62932000
+                </div>
+                <div class="footer-tel">
+                  2008-2017 © 苏州工业园区服务外包职业学院 版权所有 - 苏ICP备10020871号
+                </div>
+              </div>
+              <div class="footer-weixin">
+                  <img src="<c:url value="/szcea/statics/images/siso.jpg"/>"/>
+                  <div class="footer-weixin-title">扫一扫，关注我们</div>
+              </div>
+            </div>
+             </div>
         </div>
-        <div class="copyright pb">
-            <f:message key="ce.website.home.copyright"/>
-            &nbsp;${website.icp}
-            <br>
-            <f:message key="ce.website.home.tel"/> ${website.telephone} | <f:message key="ce.website.home.fax"/> ${website.fax} | <f:message key="ce.website.home.address"/> ${website.address}<br>
-            <f:message key="support.software"/></div>
+      </div>
     </div>
-</div><!-- end of footer -->
+  </div>
 
+  <script src="<c:url value="/szcea/statics/scripts/jquery.min.js"/>"></script>
+  <script src="<c:url value="/szcea/statics/scripts/a.js"/>"></script>
+  <script src="<c:url value="/szcea/statics/scripts/b.js"/>"></script>
 </body>
-<script src="<c:url value="/szcea/statics/scripts/jquery.min.js"/>"></script>
-<script src="<c:url value="/statics/scripts/utils.js"/>"></script>
-<script type="text/javascript">
-    var APP_PATH = '${pageContext.request.contextPath}';
-
-    $('.menu').hover(function(){
-        var sublinks = $(this).find('.sublinks');
-        if(sublinks && sublinks.hasClass('hidden')){
-            sublinks.removeClass('hidden');
-        }
-    },function(){
-        var sublinks = $(this).find('.sublinks');
-        if(sublinks && !sublinks.hasClass('hidden')){
-            sublinks.addClass('hidden');
-        }
-    });
-
-    //预加载所有的新闻图片，然后显示第一张
-    $('.dynamic-left img').eq(0).removeClass('hidden');
-
-    var h = $('.dynamic-left').height();
-    $('.dynamic-right').height(h);
-
-</script>
 </html>
+
+<script type="text/javascript">
+  var data = [
+    {amount : 11},
+    {amount : 22},
+    {amount : 33},
+    {amount : 44},
+    {amount : undefined}
+  ]
+  var data_map = data.map(function(e){
+    if (e.amount == undefined) {
+      e.amount = 0;
+    }else{
+      return e.amount;
+    }
+
+  })
+  var sum = data.reduce(function(a,c) {
+    console.log(c.amount);
+    return a + c.amount;
+  },0);
+</script>

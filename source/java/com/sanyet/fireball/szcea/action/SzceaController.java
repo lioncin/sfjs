@@ -97,6 +97,15 @@ public final class SzceaController {
 
     @RequestMapping("detail/{type}")
     public String detail(@PathVariable int type, HttpServletRequest request){
+        Content[] contents2 = contentService.getLatestContents(2, 5); //建设动态
+        ParamUtil.setRequestAttr(request, "jsdt", contents2);
+
+        Content[] contents3 = contentService.getLatestContents(3, 5); //项目建设
+        ParamUtil.setRequestAttr(request, "xmjs", contents3);
+
+        Content[] contents4 = contentService.getLatestContents(4, 5); //师资队伍
+        ParamUtil.setRequestAttr(request, "szdw", contents4);
+
         Content[] contents = contentService.getLatestContents(type, 25);
         ParamUtil.setRequestAttr(request, "contents", contents);
         return "/szcea/detail.jsp";
@@ -104,6 +113,15 @@ public final class SzceaController {
 
     @RequestMapping("content/{id}")
     public String content(@PathVariable int id, HttpServletRequest request){
+        Content[] contents2 = contentService.getLatestContents(2, 5); //建设动态
+        ParamUtil.setRequestAttr(request, "jsdt", contents2);
+
+        Content[] contents3 = contentService.getLatestContents(3, 5); //项目建设
+        ParamUtil.setRequestAttr(request, "xmjs", contents3);
+
+        Content[] contents4 = contentService.getLatestContents(4, 5); //师资队伍
+        ParamUtil.setRequestAttr(request, "szdw", contents4);
+
         Content c = contentService.getContent(id);
         ParamUtil.setRequestAttr(request, "content", c);
         return "/szcea/content.jsp";

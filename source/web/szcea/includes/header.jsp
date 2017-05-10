@@ -1,4 +1,4 @@
-<%@ page import="java.util.Iterator"%>
+﻿<%@ page import="java.util.Iterator"%>
 <%@ page import="java.util.List"%>
 <%@ page import="java.util.Map"%>
 <%@ page import="java.util.ArrayList"%>
@@ -41,48 +41,66 @@
 %>
 
 <!DOCTYPE html>
-
-<html lang="<%=siteLang%>">
+<html>
 <head>
-<title>${website.name}</title>
-<%@ page contentType="text/html;charset=UTF-8"%>
-
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="会展,展会,展览,会议,活动">
-<meta name="author" content="linx@sipso.com.cn">
-
-<link rel="shortcut icon" href="<c:url value="/szcea/statics/images/favicon.png"/>">
-<link rel="stylesheet" type="text/css" href="<c:url value="/szcea/statics/styles/szcea.css"/>"/>
-
-<!--[if lt IE 9]>
-  <script src="statics/scripts/html5shiv.min.js"></script>
-  <script src="statics/scripts/respond.min.js"></script>
-<![endif]-->
-
+  <title>主页</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="<c:url value="/szcea/statics/styles/b.css"/>"/>
+  <link rel="stylesheet" type="text/css" href="<c:url value="/szcea/statics/styles/a.css"/>"/>
 </head>
 <body>
-    <div id="header">
-        <div id="header-container">
-            <div class="left logo">
-               <img src="<c:url value="/szcea/statics/images/logo.png"/>"/>
-            </div>
-            <div class="right content">
-                <div class="name left"><f:message key="ce.website.home.zbdw" /><br /><f:message key="ce.website.home.xbdw" />
+  <div class="container">
+    <div class="content">
+      <div class="header-container">
+        <div class="header-content">
+          <div class="banner">
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+              <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                   <img src="<c:url value="/szcea/statics/images/banner4.png"/>"/>
                 </div>
-                <div class="login right">
-                    <a class="login right btn" href="javascript:clickTopMenu('<c:url value="/customer/register2.jsp"/>');"><f:message key="member.register" /></a>
-                    <a class="login right btn" href="javascript:clickTopMenu('<c:url value="/admin"/>');"><f:message key="ce.website.home.memberlogin" /></a>
+                <div class="item">
+                   <img src="<c:url value="/szcea/statics/images/banner4.png"/>"/>
                 </div>
-                <div class="cls"></div>
+                <div class="item">
+                   <img src="<c:url value="/szcea/statics/images/banner4.png"/>"/>
+                </div>
+              </div>
             </div>
-            <div class="cls"></div>
-        </div><!-- end of header container -->
-    </div><!-- end of header -->
-
-    <div id="menu">
-        <div id="menu-container">
-            <ce:header tag="TOP"/>
+          </div>
+          <div class="header-logo">
+            <img src="<c:url value="/szcea/statics/images/logo.png"/>"/>
+          </div>
         </div>
-    </div><!-- end of menu -->
+        <div class="nav-container">
+          <div class="nav-content">
+            <div class="nav-item">
+              <a href="<c:url value="/" />">首页</a>
+            </div>
+            <div class="nav-item">
+              <a href="<c:url value="/szcea/detail" />/2" />建设动态</a>
+            </div>
+            <div class="nav-item">
+              <a href="<c:url value="/szcea/detail" />/3" />项目建设</a>
+            </div>
+            <div class="nav-item">
+              <a href="<c:url value="/szcea/detail" />/4" />师资队伍</a>
+            </div>
+            <div class="nav-item">
+              <a href="<c:url value="/szcea/detail" />/5" />制度建设</a>
+            </div>
+            <div class="nav-item">
+              <a href="<c:url value="/szcea/detail" />/6" />督导通报</a>
+            </div>
+            <div class="nav-item">
+              <a href="<c:url value="/szcea/detail" />/7" />校企合作</a>
+            </div>
+            <div class="nav-item">
+              <a href="<c:url value="/szcea/detail" />/8" />政策法规</a>
+            </div>
+            <div class="nav-item last">
+              <a href="<c:url value="/szcea/detail" />/9" />资料下载</a>
+            </div>
+
+          </div>
+        </div>

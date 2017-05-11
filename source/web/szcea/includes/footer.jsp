@@ -35,25 +35,3 @@
   <script src="<c:url value="/szcea/statics/scripts/b.js"/>"></script>
 </body>
 </html>
-
-<script type="text/javascript">
-  var data = [
-    {amount : 11},
-    {amount : 22},
-    {amount : 33},
-    {amount : 44},
-    {amount : undefined}
-  ]
-  var data_map = data.map(function(e){
-    if (e.amount == undefined) {
-      e.amount = 0;
-    }else{
-      return e.amount;
-    }
-
-  })
-  var sum = data.reduce(function(a,c) {
-    console.log(c.amount);
-    return a + c.amount;
-  },0);
-</script>

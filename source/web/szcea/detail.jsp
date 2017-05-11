@@ -46,7 +46,7 @@
 
             <div class="line-item line-nav-content">
               <div class="line-title">
-                <div class="line-title-b line-nav-t">学院简介</div>
+                <div class="line-title-b line-nav-t"></div>
               </div>
               <div class="line-nav-content-b">
 
@@ -65,3 +65,9 @@
         </div>
 
 <%@ include file="/szcea/includes/footer.jsp"%>
+<script type="text/javascript">
+var index = 0;
+index = parseInt(location.href.split('detail/')[1]);
+var t = $('.nav-content a').eq(index - 1).text();
+$('.line-title-b.line-nav-t').eq(3).text(t);
+</script>

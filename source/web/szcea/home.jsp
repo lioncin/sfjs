@@ -102,12 +102,12 @@
             <div class="line-item line-top2 line-mid2">
               <div class="line-header-b">
                 <div class="line-header-t line-header-b-t">特色项目建设</div>
-                <a class="line-header-more" href="<c:url value="/szcea/detail" />/6">更多>></a>
+                <a class="line-header-more" href="<c:url value="/szcea/detail" />/11">更多>></a>
               </div>
               <div class="line-list-date">
                 <ul>
-                  <c:if test="${not empty ddtb }">
-                    <c:forEach var="row" items="${ddtb }">
+                  <c:if test="${not empty tsxmjs }">
+                    <c:forEach var="row" items="${tsxmjs }">
                       <li>
                         <a class="wonderful-item" href="<c:url value="/szcea/content/" />${row.id}">${row.name}</a>
                         <span><f:date value="${row.createdAt}"/></span>
@@ -144,12 +144,12 @@
             <div class="line-item line-top2 line-mid1">
               <div class="line-header-b">
                 <div class="line-header-t line-header-b-t">校重点专业建设</div>
-                <a class="line-header-more" href="<c:url value="/szcea/detail" />/8">更多>></a>
+                <a class="line-header-more" href="<c:url value="/szcea/detail" />/10">更多>></a>
               </div>
               <div class="line-list-date">
                 <ul>
-                  <c:if test="${not empty zcfg }">
-                    <c:forEach var="row" items="${zcfg }">
+                  <c:if test="${not empty zdxmjs }">
+                    <c:forEach var="row" items="${zdxmjs }">
                       <li>
                         <a class="wonderful-item" href="<c:url value="/szcea/content/" />${row.id}">${row.name}</a>
                         <span><f:date value="${row.createdAt}"/></span>

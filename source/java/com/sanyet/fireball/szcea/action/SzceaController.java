@@ -91,6 +91,17 @@ public final class SzceaController {
         Content[] contents9 = contentService.getLatestContents(9, 10); //资料下载
         ParamUtil.setRequestAttr(request, "zlxz", contents9);
 
+        Content[] contents10 = contentService.getLatestContents(10, 10); //重点专业建设
+        ParamUtil.setRequestAttr(request, "zdzyjs", contents9);
+
+        Content[] contents11 = contentService.getLatestContents(11, 10); //特色项目建设
+        ParamUtil.setRequestAttr(request, "tsxmjs", contents9);
+
+        Content[] contents12 = contentService.getLatestContents(12, 10); //工作简报
+        ParamUtil.setRequestAttr(request, "gzjb", contents9);
+
+        Content[] contents13 = contentService.getLatestContents(13, 10); //示范风采
+        ParamUtil.setRequestAttr(request, "sffc", contents9);
 
         return "/szcea/home.jsp";
     }

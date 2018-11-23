@@ -30,8 +30,22 @@
     </div>
   </div>
 
-  <script src="<c:url value="/szcea/statics/scripts/jquery.min.js"/>"></script>
-  <script src="<c:url value="/szcea/statics/scripts/a.js"/>"></script>
-  <script src="<c:url value="/szcea/statics/scripts/b.js"/>"></script>
+  <script src='<c:url value="/szcea/statics/scripts/jquery.min.js"/>'></script>
+  <script src='<c:url value="/szcea/statics/scripts/a.js"/>'></script>
+  <script src='<c:url value="/szcea/statics/scripts/b.js"/>'></script>
+  <script>
+    $(function(){
+      $('.tedian').hover(function(){
+        $('.tedian .child-nav').removeClass('hidden');
+      }, function(){
+      });
+
+      $('.tedian').hover(function(){}, function(){
+        $('.tedian .child-nav').addClass('hidden');
+      });
+    });
+  $('.carousel-indicators').remove();
+</script>
+
 </body>
 </html>

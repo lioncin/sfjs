@@ -4,44 +4,59 @@
           <div class="line-content line-nav">
 
             <div class="line-item line-nav-left">
-              <div class="line-title">
-                <div class="line-title-b line-nav-t">建设动态</div>
-              </div>
-              <div class="line-nav-list">
-                <ul>
-                  <c:forEach var="row" items="${jsdt }">
-                    <li>
-                      <a class="wonderful-item" href="<c:url value="/szcea/content/" />${row.id}">${row.name}</a>
-                    </li>
-                  </c:forEach>
-                </ul>
-              </div>
-
-              <div class="line-title">
-                <div class="line-title-b line-nav-t">项目建设</div>
-              </div>
-              <div class="line-nav-list">
-                <ul>
-                  <c:forEach var="row" items="${xmjs }">
-                    <li>
-                      <a class="wonderful-item" href="<c:url value="/szcea/content/" />${row.id}">${row.name}</a>
-                    </li>
-                  </c:forEach>
-                </ul>
-              </div>
-
-              <div class="line-title">
-                <div class="line-title-b line-nav-t">师资队伍</div>
-              </div>
-              <div class="line-nav-list">
-                <ul>
-                  <c:forEach var="row" items="${szdw }">
-                    <li>
-                      <a class="wonderful-item" href="<c:url value="/szcea/content/" />${row.id}">${row.name}</a>
-                    </li>
-                  </c:forEach>
-                </ul>
-              </div>
+                <div id="right">
+                    <div class="right-item">
+                        <div class='tt'>
+                            <div class="icon"></div>
+                            <div class="title">通知公告</div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                    <div class="right-item">
+                        <div class="tt">
+                            <div class="icon"></div>
+                            <div class="title">重点专业建设</div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="zhuanye">
+                            <div class="icon"></div>
+                            <div class="text">软件技术专业建设</div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="zhuanye">
+                            <div class="icon"></div>
+                            <div class="text">商务管理专业建设</div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="zhuanye">
+                            <div class="icon"></div>
+                            <div class="text">生物技术与应用专业建设</div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="zhuanye">
+                            <div class="icon"></div>
+                            <div class="text">动漫设计与制作专业建设</div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                    <div class="right-item">
+                        <div class="tt">
+                            <div class="icon"></div>
+                            <div class="title">办学体制与校企合作建设</div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="zhuanye">
+                            <div class="icon"></div>
+                            <div class="text">办学体制机制建设</div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="zhuanye">
+                            <div class="icon"></div>
+                            <div class="text">校企合作建设</div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="line-item line-nav-content">

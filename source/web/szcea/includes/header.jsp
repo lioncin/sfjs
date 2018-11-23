@@ -43,7 +43,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>主页</title>
+  <title>江苏省示范性高职院校建设专题网站</title>
   <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="<c:url value="/szcea/statics/styles/b.css"/>"/>
   <link rel="stylesheet" type="text/css" href="<c:url value="/szcea/statics/styles/a.css"/>"/>
@@ -68,9 +68,6 @@
               </div>
             </div>
           </div>
-          <div class="header-logo">
-            <img src="<c:url value="/szcea/statics/images/logo.png"/>"/>
-          </div>
         </div>
         <div class="nav-container">
           <div class="nav-content">
@@ -81,19 +78,23 @@
               <a href="<c:url value="/szcea/detail" />/2" />建设动态</a>
             </div>
             <div class="nav-item">
+              <a href="<c:url value="/szcea/detail" />/5" />制度建设</a>
+            </div>
+            <div class="nav-item tedian">
               <a href="<c:url value="/szcea/detail" />/3" />项目建设</a>
+                <div class='child-nav hidden'>
+                  <div class='child-nav-text'><a href="<c:url value="/szcea/detail" />/10">重点专业建设</a></div>
+                  <div class='child-nav-text'><a href="<c:url value="/szcea/detail" />/11">特色项目建设</a></div>
+                </div>
             </div>
             <div class="nav-item">
               <a href="<c:url value="/szcea/detail" />/4" />师资队伍</a>
             </div>
             <div class="nav-item">
-              <a href="<c:url value="/szcea/detail" />/5" />制度建设</a>
-            </div>
-            <div class="nav-item">
-              <a href="<c:url value="/szcea/detail" />/6" />督导通报</a>
-            </div>
-            <div class="nav-item">
               <a href="<c:url value="/szcea/detail" />/7" />校企合作</a>
+            </div>
+            <div class="nav-item">
+              <a href="<c:url value="/szcea/detail" />/14" />建设成果</a>
             </div>
             <div class="nav-item">
               <a href="<c:url value="/szcea/detail" />/8" />政策法规</a>

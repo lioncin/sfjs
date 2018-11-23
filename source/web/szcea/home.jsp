@@ -23,7 +23,7 @@
                         <img class="line-banner-img" src="<c:url value="/szcea/statics/images/line-banner.jpg"/>"/>
                     </div>
                     <div class="item">
-                       <img class="line-banner-img" src="<c:url value="/szcea/statics/images/line-banner.jpg"/>"/>
+                        <img class="line-banner-img" src="<c:url value="/szcea/statics/images/line-banner.jpg"/>"/>
                     </div>
                   </div>
                 </div>
@@ -42,11 +42,8 @@
             </div>
             <div class="line-item line-top2">
               <div class="line-header-b">
-                <div class="line-header-t line-header-b-t">项目建设</div>
+                <div class="line-header-t line-header-b-t">通知公告</div>
                 <a class="line-header-more" href="<c:url value="/szcea/detail" />/3">更多>></a>
-              </div>
-              <div class="line-title">
-                <div class="line-title-b">苏州服务外包学院</div>
               </div>
               <div class="line-list-date">
                 <ul>
@@ -86,13 +83,13 @@
           <div class="line-content line-mid">
             <div class="line-item line-top2 line-mid1">
               <div class="line-header-b">
-                <div class="line-header-t line-header-b-t">制度建设</div>
-                <a class="line-header-more" href="<c:url value="/szcea/detail" />/5">更多>></a>
+                <div class="line-header-t line-header-b-t">工作简报</div>
+                <a class="line-header-more" href="<c:url value="/szcea/detail" />/12">更多>></a>
               </div>
               <div class="line-list-date">
                 <ul>
-                  <c:if test="${not empty zdjs }">
-                    <c:forEach var="row" items="${zdjs }">
+                  <c:if test="${not empty gzjb }">
+                    <c:forEach var="row" items="${gzjb }">
                       <li>
                         <a class="wonderful-item" href="<c:url value="/szcea/content/" />${row.id}">${row.name}</a>
                         <span><f:date value="${row.createdAt}"/></span>
@@ -104,7 +101,7 @@
             </div>
             <div class="line-item line-top2 line-mid2">
               <div class="line-header-b">
-                <div class="line-header-t line-header-b-t">督导通报</div>
+                <div class="line-header-t line-header-b-t">特色项目建设</div>
                 <a class="line-header-more" href="<c:url value="/szcea/detail" />/6">更多>></a>
               </div>
               <div class="line-list-date">
@@ -146,7 +143,7 @@
           <div class="line-content line-mid">
             <div class="line-item line-top2 line-mid1">
               <div class="line-header-b">
-                <div class="line-header-t line-header-b-t">政策法规</div>
+                <div class="line-header-t line-header-b-t">校重点专业建设</div>
                 <a class="line-header-more" href="<c:url value="/szcea/detail" />/8">更多>></a>
               </div>
               <div class="line-list-date">
@@ -164,7 +161,7 @@
             </div>
             <div class="line-item line-top2 line-mid2">
               <div class="line-header-b">
-                <div class="line-header-t line-header-b-t">资料下载</div>
+                <div class="line-header-t line-header-b-t">示范风采</div>
                 <a class="line-header-more" href="<c:url value="/szcea/detail" />/9">更多>></a>
               </div>
               <div class="line-list-date">

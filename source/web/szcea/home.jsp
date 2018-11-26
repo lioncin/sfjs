@@ -43,12 +43,12 @@
             <div class="line-item line-top2">
               <div class="line-header-b">
                 <div class="line-header-t line-header-b-t">通知公告</div>
-                <a class="line-header-more" href="<c:url value="/szcea/detail" />/3">更多>></a>
+                <a class="line-header-more" href="<c:url value="/szcea/detail" />/14">更多>></a>
               </div>
               <div class="line-list-date">
                 <ul>
-                  <c:if test="${not empty xmjs }">
-                    <c:forEach var="row" items="${xmjs }">
+                  <c:if test="${not empty tzgg }">
+                    <c:forEach var="row" items="${tzgg }">
                       <li>
                         <a class="wonderful-item" href="<c:url value="/szcea/content/" />${row.id}">${row.name}</a>
                         <span><f:date value="${row.createdAt}"/></span>
@@ -148,8 +148,8 @@
               </div>
               <div class="line-list-date">
                 <ul>
-                  <c:if test="${not empty zdxmjs }">
-                    <c:forEach var="row" items="${zdxmjs }">
+                  <c:if test="${not empty zdzyjs }">
+                    <c:forEach var="row" items="${zdzyjs }">
                       <li>
                         <a class="wonderful-item" href="<c:url value="/szcea/content/" />${row.id}">${row.name}</a>
                         <span><f:date value="${row.createdAt}"/></span>
@@ -166,8 +166,8 @@
               </div>
               <div class="line-list-date">
                 <ul>
-                  <c:if test="${not empty zlxz }">
-                    <c:forEach var="row" items="${zlxz }">
+                  <c:if test="${not empty sffc }">
+                    <c:forEach var="row" items="${sffc }">
                       <li>
                         <a class="wonderful-item" href="<c:url value="/szcea/content/" />${row.id}">${row.name}</a>
                         <span><f:date value="${row.createdAt}"/></span>

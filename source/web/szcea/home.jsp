@@ -60,20 +60,32 @@
             </div>
             <div class="line-item line-top3">
               <div class="line-header">
-                <div class="line-header-t">师资队伍</div>
+                <div class="line-header-t">重点建设专业</div>
                 <a class="line-header-more" href="<c:url value="/szcea/detail" />/4">更多>></a>
               </div>
-              <div class="line-list">
-                <ul>
-                  <c:if test="${not empty szdw }">
-                    <c:forEach var="row" items="${szdw }">
-                      <li>
-                        <a class="wonderful-item" href="<c:url value="/szcea/content/" />${row.id}">${row.name}</a>
-                        <span><f:date value="${row.createdAt}"/></span>
-                      </li>
-                    </c:forEach>
-                  </c:if>
-                </ul>
+              <div class="line-list" id='right'>
+                <div class="right-item">
+                  <div class="zhuanye">
+                      <div class="icon"></div>
+                      <div class="text">软件技术专业建设</div>
+                      <div class="clear"></div>
+                  </div>
+                  <div class="zhuanye">
+                      <div class="icon"></div>
+                      <div class="text">商务管理专业建设</div>
+                      <div class="clear"></div>
+                  </div>
+                  <div class="zhuanye">
+                      <div class="icon"></div>
+                      <div class="text">生物技术与应用专业建设</div>
+                      <div class="clear"></div>
+                  </div>
+                  <div class="zhuanye">
+                      <div class="icon"></div>
+                      <div class="text">动漫设计与制作专业建设</div>
+                      <div class="clear"></div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -119,20 +131,22 @@
             </div>
             <div class="line-item line-top3 line-mid3">
               <div class="line-header">
-                <div class="line-header-t">校企合作</div>
+                <div class="line-header-t">办学体制与校企合作建设</div>
                 <a class="line-header-more" href="<c:url value="/szcea/detail" />/7">更多>></a>
               </div>
-              <div class="line-list">
-                <ul>
-                  <c:if test="${not empty xqhz }">
-                    <c:forEach var="row" items="${xqhz }">
-                      <li>
-                        <a class="wonderful-item" href="<c:url value="/szcea/content/" />${row.id}">${row.name}</a>
-                        <span><f:date value="${row.createdAt}"/></span>
-                      </li>
-                    </c:forEach>
-                  </c:if>
-                </ul>
+              <div class="line-list" id='right'>
+                <div class="right-item">
+                  <div class="zhuanye">
+                      <div class="icon"></div>
+                      <div class="text">办学体制机制建设</div>
+                      <div class="clear"></div>
+                  </div>
+                  <div class="zhuanye">
+                      <div class="icon"></div>
+                      <div class="text">校企合作建设</div>
+                      <div class="clear"></div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -143,20 +157,11 @@
           <div class="line-content line-mid">
             <div class="line-item line-top2 line-mid1">
               <div class="line-header-b">
-                <div class="line-header-t line-header-b-t">校重点专业建设</div>
+                <div class="line-header-t line-header-b-t">重点专业建设</div>
                 <a class="line-header-more" href="<c:url value="/szcea/detail" />/10">更多>></a>
               </div>
               <div class="line-list-date">
-                <ul>
-                  <c:if test="${not empty zdzyjs }">
-                    <c:forEach var="row" items="${zdzyjs }">
-                      <li>
-                        <a class="wonderful-item" href="<c:url value="/szcea/content/" />${row.id}">${row.name}</a>
-                        <span><f:date value="${row.createdAt}"/></span>
-                      </li>
-                    </c:forEach>
-                  </c:if>
-                </ul>
+                
               </div>
             </div>
             <div class="line-item line-top2 line-mid2">

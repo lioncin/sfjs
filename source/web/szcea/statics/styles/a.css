@@ -611,8 +611,8 @@ input{
     background-position: 2px 16px;
 }
 
-#right{ width: 80%; margin: 20px auto;}
-#right .right-item{ width: 100%; margin: 10px 0; background: #edf6fd;}
+#right{ width: 100%; margin: 20px auto;}
+#right .right-item{ width: 100%; margin: 10px 0;}
 #right .right-item .tt{ width: 100%; height: 40px; line-height: 40px;}
 #right .right-item .tt .icon{ width: 16px; height: 16px; float: left; background: url('../images/right2.png'); margin-right: 5px; margin-top: 12px; }
 #right .right-item .tt .title{ color: #2d6bad; float: left; }
